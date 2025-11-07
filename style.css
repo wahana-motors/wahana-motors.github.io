@@ -181,10 +181,62 @@ footer small {
     font-size: 13px;
     padding: 6px 10px;
   }
+    .post-container h1 {
+    font-size: 1.4rem;
+  }
+  .post-container img {
+    max-width: 100%;
+  }
 }
 
 @media (max-width: 400px) {
   .motor-container {
     grid-template-columns: 1fr; /* fallback 1 kolom di layar super kecil */
   }
+}
+
+/* === Halaman Post (beat.html & lainnya) === */
+.post-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  line-height: 1.7;
+  color: #222;
+}
+
+.post-container h1 {
+  text-align: left;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  border-left: 5px solid red;
+  padding-left: 10px;
+}
+
+.post-container img {
+  display: block;
+  max-width: 700px; /* batas lebar di desktop */
+  width: 100%;
+  height: auto;
+  margin: 0 auto 20px auto; /* center dan jarak bawah */
+}
+
+.post-container p {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+
+/* Tombol kembali */
+.back-btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 10px 18px;
+  background: red;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.back-btn:hover {
+  background: #c40000;
 }
