@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Wahana Motors - Pilih Motor Favorit Anda</title>
+
 <style>
 /* === Global Style === */
 body {
@@ -71,8 +72,8 @@ h2 {
 /* === Grid Motor Container === */
 .motor-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 18px;
   justify-content: center;
 }
 
@@ -109,7 +110,7 @@ h2 {
 }
 .motor-card h3 {
   margin: 0;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: bold;
 }
 .motor-card p {
@@ -161,7 +162,7 @@ footer small {
   color: #aaa;
 }
 
-/* === Responsive Breakpoints === */
+/* === Responsive Fix === */
 @media (max-width: 900px) {
   h2 {
     font-size: 24px;
@@ -172,24 +173,25 @@ footer small {
 }
 
 @media (max-width: 600px) {
-  header img {
-    height: 35px;
-  }
-  h2 {
-    font-size: 22px;
-  }
-  .tab {
-    font-size: 16px;
+  .motor-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 kolom di HP */
   }
   .motor-card h3 {
-    font-size: 16px;
+    font-size: 15px;
   }
   .btn {
     font-size: 13px;
-    padding: 7px 12px;
+    padding: 6px 10px;
   }
 }
-</style>
+
+@media (max-width: 400px) {
+  .motor-container {
+    grid-template-columns: 1fr; /* fallback 1 kolom di layar super kecil */
+  }
+}
+  </style>
+
 </head>
 <body>
 <header>
