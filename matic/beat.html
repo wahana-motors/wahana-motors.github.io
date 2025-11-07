@@ -1,18 +1,55 @@
-<div id="header"></div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honda BeAT - Wahana Motors</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f5f5f5;
+    }
+    main {
+      max-width: 700px;
+      margin: 100px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    main img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"></div>
 
-<main>
-  <h2>Honda Beat</h2>
-  <img src="beat.jpg" alt="Honda Beat">
-  <p>Lorem ipsum dolor sit amet...</p>
-</main>
+  <main>
+    <h2>Honda BeAT</h2>
+    <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-styling2.jpg" alt="Honda Beat">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Honda Beat adalah motor matic paling populer di Indonesia.</p>
+  </main>
 
-<div id="footer"></div>
+  <div id="footer"></div>
 
-<script>
-  async function loadComponent(id, file) {
-    const res = await fetch(file);
-    document.getElementById(id).innerHTML = await res.text();
-  }
-  loadComponent("header", "/header.html");
-  loadComponent("footer", "/footer.html");
-</script>
+  <script>
+    async function loadComponent(id, file) {
+      const base = window.location.origin;
+      const res = await fetch(base + "/" + file);
+      const html = await res.text();
+      document.getElementById(id).innerHTML = html;
+    }
+
+    loadComponent("header", "header.html");
+    loadComponent("footer", "footer.html");
+  </script>
+</body>
+</html>
