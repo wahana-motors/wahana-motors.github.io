@@ -1,0 +1,18 @@
+[
+  {
+    "category": "matic",
+    "name": "BeAT",
+    "price": 18980000,
+    "link": "matic/beat.html",
+    "image": "https://i.ibb.co/zs3T4Q1/beat.png",
+    "new": true
+  },
+  {
+    "category": "sport",
+    "name": "CBR150R",
+    "price": 37900000,
+    "link": "sport/cbr150.html",
+    "image": "https://i.ibb.co/xsgyYhM/cbr150.png",
+    "new": false
+  }
+]
