@@ -1,260 +1,232 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Pilih Motor Favorit Anda | Wahana Motors</title>
 <style>
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: "Segoe UI", Tahoma, sans-serif;
-    background: #fff;
-    color: #222;
-  }
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, sans-serif;
+  background: #fff;
+  color: #222;
+}
 
-  /* HEADER */
-  header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 4px solid #d00;
-    padding: 10px 0;
-    background: #fff;
-  }
-  header img {
-    height: 55px;
-  }
+/* HEADER */
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: 4px solid #d00;
+  padding: 10px 0;
+}
+header img {
+  height: 55px;
+}
 
-  /* TITLE */
-  .title {
-    text-align: center;
-    margin: 30px 0 10px;
-  }
-  .title h2 {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin: 0;
-  }
+/* TITLE */
+.title {
+  text-align: center;
+  margin-top: 30px;
+}
+.title h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
 
-  /* TABS */
-  .tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    font-weight: 600;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-  }
-  .tab {
-    cursor: pointer;
-    color: #444;
-    position: relative;
-    padding-bottom: 5px;
-  }
-  .tab.active {
-    color: #d00;
-  }
-  .tab.active::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 2px;
-    width: 100%;
-    background: #d00;
-  }
+/* TABS */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  font-weight: 600;
+}
+.tab {
+  cursor: pointer;
+  color: #444;
+  position: relative;
+  padding-bottom: 5px;
+}
+.tab.active {
+  color: #d00;
+}
+.tab.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: #d00;
+}
 
-  /* GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
-    max-width: 1100px;
-    margin: auto;
-    padding: 0 1rem 3rem;
-  }
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1rem 3rem;
+}
+.card {
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: left;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.new {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  color: #d00;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+.card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.card h3 {
+  font-size: 1.1rem;
+  margin: 5px 0;
+}
+.price-label {
+  color: #555;
+  font-size: 0.9rem;
+}
+.price {
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 12px;
+}
+.btn {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 8px 16px;
+  border-radius: 25px;
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  background: #d00;
+  color: #fff;
+  border-color: #d00;
+}
 
+/* FOOTER */
+footer {
+  background: #111;
+  color: #ccc;
+  text-align: center;
+  padding: 2rem 1rem;
+}
+footer img {
+  height: 40px;
+  margin-bottom: 10px;
+}
+footer p {
+  margin: 4px 0;
+  font-size: 0.9rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
   .card {
-    border: 1px solid #eee;
-    border-radius: 12px;
-    padding: 1rem;
-    text-align: left;
-    position: relative;
-    transition: all 0.2s ease;
+    padding: 0.8rem;
   }
-
-  .card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-
-  .new {
-    position: absolute;
-    top: 10px;
-    right: 14px;
-    color: #d00;
-    font-weight: bold;
-    font-size: 0.9rem;
-  }
-
-  .card img {
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 12px;
-  }
-
   .card h3 {
-    font-size: 1.1rem;
-    margin: 5px 0;
+    font-size: 1rem;
   }
-
-  .price-label {
-    color: #555;
-    font-size: 0.9rem;
-  }
-
-  .price {
-    font-weight: bold;
-    color: #000;
-    margin-bottom: 12px;
-  }
-
   .btn {
-    display: inline-block;
-    border: 1px solid #ccc;
-    padding: 8px 16px;
-    border-radius: 25px;
-    text-decoration: none;
-    color: #000;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .btn:hover {
-    background: #d00;
-    color: #fff;
-    border-color: #d00;
-  }
-
-  /* FOOTER */
-  footer {
-    background: #111;
-    color: #ccc;
-    text-align: center;
-    padding: 2rem 1rem;
-  }
-
-  footer img {
-    height: 40px;
-    margin-bottom: 10px;
-  }
-
-  footer p {
-    margin: 4px 0;
+    padding: 6px 12px;
     font-size: 0.9rem;
   }
-
-  /* RESPONSIVE */
-  @media (max-width: 600px) {
-    .card {
-      padding: 0.8rem;
-    }
-    .card h3 {
-      font-size: 1rem;
-    }
-    .btn {
-      padding: 6px 12px;
-      font-size: 0.9rem;
-    }
-  }
+}
 </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Honda-logo.svg" alt="Honda Logo">
-  </header>
+<!-- HEADER -->
+<header>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Honda-logo.svg" alt="Honda Logo" />
+</header>
 
-  <!-- TITLE -->
-  <div class="title">
-    <h2>Pilih Motor Favorit Anda</h2>
-  </div>
+<!-- TITLE -->
+<div class="title">
+  <h2>Pilih Motor Favorit Anda</h2>
+</div>
 
-  <!-- TABS -->
-  <div class="tabs">
-    <div class="tab active" data-category="matic">Matic</div>
-    <div class="tab" data-category="sport">Sport</div>
-    <div class="tab" data-category="cub">Cub</div>
-    <div class="tab" data-category="ev">EV</div>
-    <div class="tab" data-category="bigbike">BigBike</div>
-  </div>
+<!-- TABS -->
+<div class="tabs">
+  <div class="tab active" data-category="matic">Matic</div>
+  <div class="tab" data-category="sport">Sport</div>
+  <div class="tab" data-category="cub">Cub</div>
+  <div class="tab" data-category="ev">EV</div>
+  <div class="tab" data-category="bigbike">BigBike</div>
+</div>
 
-  <!-- GRID -->
-  <div class="grid" id="motorGrid">
-    <!-- MOTOR CARD -->
-    <div class="card" data-category="matic">
-      <span class="new">New!</span>
-      <img src="https://i.ibb.co/zs3T4Q1/beat.png" alt="BeAT">
-      <h3>BeAT</h3>
-      <p class="price-label">Harga mulai</p>
-      <p class="price">Rp. 18,980,000</p>
-      <a href="beat.html" class="btn">Selengkapnya →</a>
-    </div>
+<!-- GRID -->
+<div class="grid" id="motorGrid">Memuat...</div>
 
-    <div class="card" data-category="matic">
-      <span class="new">New!</span>
-      <img src="https://i.ibb.co/zm5ZJMQ/beatstreet.png" alt="BeAT Street">
-      <h3>BeAT Street</h3>
-      <p class="price-label">Harga mulai</p>
-      <p class="price">Rp. 19,851,000</p>
-      <a href="beatstreet.html" class="btn">Selengkapnya →</a>
-    </div>
+<!-- FOOTER -->
+<footer>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Honda-logo.svg" alt="Honda Logo" />
+  <p><strong>Alamat</strong></p>
+  <p>Jl. Raya Kopo No.137, Katapang, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921</p>
+  <p>© 2025 Wahana Motors. All Rights Reserved.</p>
+</footer>
 
-    <div class="card" data-category="matic">
-      <span class="new">New!</span>
-      <img src="https://i.ibb.co/pK9pKSP/genio.png" alt="Genio">
-      <h3>Genio</h3>
-      <p class="price-label">Harga mulai</p>
-      <p class="price">Rp. 20,075,000</p>
-      <a href="genio.html" class="btn">Selengkapnya →</a>
-    </div>
+<script>
+async function loadMotors(category = "matic") {
+  const grid = document.getElementById("motorGrid");
+  grid.innerHTML = "Memuat...";
+  try {
+    const res = await fetch("data/motor.json");
+    const data = await res.json();
+    const filtered = data.filter(m => m.category === category);
+    if (filtered.length === 0) {
+      grid.innerHTML = "<p style='text-align:center;width:100%'>Belum ada motor di kategori ini.</p>";
+      return;
+    }
+    grid.innerHTML = filtered.map(m => `
+      <div class="card">
+        ${m.new ? '<span class="new">New!</span>' : ""}
+        <img src="${m.image}" alt="${m.name}">
+        <h3>${m.name}</h3>
+        <p class="price-label">Harga mulai</p>
+        <p class="price">Rp. ${m.price.toLocaleString("id-ID")}</p>
+        <a href="${m.link}" class="btn">Selengkapnya →</a>
+      </div>
+    `).join("");
+  } catch (e) {
+    grid.innerHTML = "<p style='color:red;text-align:center;'>Gagal memuat data motor.</p>";
+  }
+}
 
-    <div class="card" data-category="matic">
-      <img src="https://i.ibb.co/VLZPCcL/scoopy.png" alt="Scoopy">
-      <h3>Scoopy</h3>
-      <p class="price-label">Harga mulai</p>
-      <p class="price">Rp. 22,876,000</p>
-      <a href="scoopy.html" class="btn">Selengkapnya →</a>
-    </div>
-  </div>
+const tabs = document.querySelectorAll(".tab");
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    tab.classList.add("active");
+    loadMotors(tab.dataset.category);
+  });
+});
 
-  <!-- FOOTER -->
-  <footer>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Honda-logo.svg" alt="Honda Logo">
-    <p><strong>Alamat</strong></p>
-    <p>Jl. Raya Kopo No.137, Katapang, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921</p>
-    <p>© Copyright 2025, Wahana Motors. All Rights Reserved.</p>
-  </footer>
-
-  <script>
-    const tabs = document.querySelectorAll('.tab');
-    const cards = document.querySelectorAll('.card');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
-        tab.classList.add('active');
-
-        const cat = tab.dataset.category;
-        cards.forEach(card => {
-          card.style.display = (card.dataset.category === cat) ? 'block' : 'none';
-        });
-      });
-    });
-  </script>
-
+loadMotors("matic");
+</script>
 </body>
 </html>
