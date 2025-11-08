@@ -70,55 +70,35 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-// ==============================
-// SLIDER FOTO OTOMATIS (untuk halaman post seperti beat.html)
-// ==============================
-function initImageSlider() {
-  const slider = document.querySelector(".image-slider");
-  if (!slider) return;
+// --- SLIDER MANUAL (untuk halaman post seperti beat.html) ---
+document.addEventListener("DOMContentLoaded", () => {
+  const sliders = document.querySelectorAll(".image-slider");
 
-  const wrapper = slider.querySelector(".slider-wrapper");
-  const slides = wrapper.querySelectorAll("img");
-  const dots = slider.querySelectorAll(".dot");
+  sliders.forEach(slider => {
+    const wrapper = slider.querySelector(".slider-wrapper");
+    const dots = slider.querySelectorAll(".dot");
+    const slides = slider.querySelectorAll("img");
 
-  let index = 0;
-  let startX = 0;
-  let isDragging = false;
+    let index = 0;
 
-  function showSlide(i) {
-    wrapper.style.transform = `translateX(-${i * 100}%)`;
-    dots.forEach((dot, d) => dot.classList.toggle("active", d === i));
-  }
+    // fungsi update tampilan slide
+    function showSlide(i) {
+      if (i < 0) index = slides.length - 1;
+      else if (i >= slides.length) index = 0;
+      else index = i;
 
-  // Klik titik (dot)
-  dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      index = i;
-      showSlide(index);
+      wrapper.style.transform = `translateX(-${index * 100}%)`;
+
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[index].classList.add("active");
+    }
+
+    // klik titik
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => showSlide(i));
     });
-  });
 
-  // Geser manual (touch swipe)
-  wrapper.addEventListener("touchstart", e => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
+    // inisialisasi
+    showSlide(0);
   });
-
-  wrapper.addEventListener("touchmove", e => {
-    if (!isDragging) return;
-    const diff = e.touches[0].clientX - startX;
-    wrapper.style.transform = `translateX(calc(-${index * 100}% + ${diff}px))`;
-  });
-
-  wrapper.addEventListener("touchend", e => {
-    if (!isDragging) return;
-    const diff = e.changedTouches[0].clientX - startX;
-    if (diff > 50 && index > 0) index--;           // geser kanan
-    else if (diff < -50 && index < slides.length - 1) index++; // geser kiri
-    showSlide(index);
-    isDragging = false;
-  });
-
-  // Awal tampil
-  showSlide(index);
-}
+});
