@@ -170,53 +170,57 @@ footer a img:hover {
   opacity: 0.85;
   cursor: pointer;
 }
-
-/* === SLIDER KHUSUS HALAMAN POST (Seperti beat.html) === */
 .image-slider {
   position: relative;
-  width: 100%;
-  max-width: 700px; /* biar gak terlalu besar di desktop */
-  margin: 0 auto 1.5rem;
   overflow: hidden;
   border-radius: 12px;
-  background: #f8f8f8;
+  background: #f9f9f9;
 }
 
 .slider-wrapper {
   display: flex;
-  width: 100%;
-  transition: transform 0.4s ease-in-out;
-  touch-action: pan-y;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
 
 .slider-wrapper img {
+  flex: 0 0 100%;
   width: 100%;
-  flex-shrink: 0;
-  object-fit: contain;
-  background: #fff;
+  height: auto;
+  object-fit: cover;
+  scroll-snap-align: start;
+  border-radius: 12px;
 }
-/* ============================= */
-/*   SLIDER DOT INDICATOR FIX    */
-/* ============================= */
+
+/* --------------------------- */
+/* DOTS FIX - VISIBLE IN ANY DEVICE */
+/* --------------------------- */
 .slider-dots {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 10px;
-  padding-bottom: 5px;
+  position: relative;
+  z-index: 10;
+  margin-top: 8px;
+  padding: 8px 0;
+  background: transparent;
 }
 
 .slider-dots .dot {
+  display: inline-block;
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: #bbb; /* Warna default (abu muda) */
-  transition: background-color 0.3s ease;
+  background-color: #c4c4c4;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .slider-dots .dot.active {
-  background-color: #333; /* Warna aktif (abu tua / hitam) */
+  background-color: #222;
+  transform: scale(1.2);
 }
 
 
