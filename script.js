@@ -70,56 +70,29 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-// --- SLIDER MANUAL (untuk halaman post seperti beat.html) ---
-// 🔹 Geser manual (swipe) di slider
-const sliderWrapper = document.querySelector('.slider-wrapper');
-let isDown = false;
-let startX;
-let scrollLeft;
+// 🔹 Swipe gesture sederhana untuk HP (tanpa ganggu klik)
+const slider = document.querySelector('.slider-wrapper');
+let startX = 0;
+let endX = 0;
 
-if (sliderWrapper) {
-  sliderWrapper.addEventListener('mousedown', (e) => {
-    isDown = true;
-    sliderWrapper.classList.add('active');
-    startX = e.pageX - sliderWrapper.offsetLeft;
-    scrollLeft = sliderWrapper.scrollLeft;
+if (slider) {
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
   });
 
-  sliderWrapper.addEventListener('mouseleave', () => {
-    isDown = false;
-    sliderWrapper.classList.remove('active');
+  slider.addEventListener('touchend', (e) => {
+    endX = e.changedTouches[0].clientX;
+    handleSwipe();
   });
+}
 
-  sliderWrapper.addEventListener('mouseup', () => {
-    isDown = false;
-    sliderWrapper.classList.remove('active');
-  });
-
-  sliderWrapper.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - sliderWrapper.offsetLeft;
-    const walk = (x - startX) * 1.5; // kecepatan geser
-    sliderWrapper.scrollLeft = scrollLeft - walk;
-  });
-
-  // 🔸 Support untuk HP (touch)
-  let startTouchX = 0;
-  sliderWrapper.addEventListener('touchstart', (e) => {
-    startTouchX = e.touches[0].clientX;
-  });
-
-  sliderWrapper.addEventListener('touchmove', (e) => {
-    const moveX = e.touches[0].clientX;
-    const diff = startTouchX - moveX;
-
-    if (Math.abs(diff) > 30) { // biar gak terlalu sensitif
-      if (diff > 0) {
-        nextSlide();
-      } else {
-        prevSlide();
-      }
-      startTouchX = moveX; // reset posisi biar bisa terus geser
+function handleSwipe() {
+  const diff = startX - endX;
+  if (Math.abs(diff) > 50) { // minimal jarak geser biar gak terlalu sensitif
+    if (diff > 0) {
+      nextSlide(); // geser ke kanan (slide berikutnya)
+    } else {
+      prevSlide(); // geser ke kiri (slide sebelumnya)
     }
-  });
+  }
 }
