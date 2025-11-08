@@ -70,71 +70,79 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-// ==========================
-// Fungsi include header/footer
-// ==========================
-document.addEventListener("DOMContentLoaded", function () {
-  const includes = document.querySelectorAll("[data-include]");
-  includes.forEach(el => {
-    const file = el.getAttribute("data-include");
-    fetch(file)
-      .then(res => {
-        if (!res.ok) throw new Error(`Gagal memuat ${file}`);
-        return res.text();
-      })
-      .then(data => {
-        el.innerHTML = data;
-      })
-      .catch(err => console.error(err));
+// === SLIDER FOTO MANUAL TANPA AUTO, FULL FIX ===
+document.addEventListener("DOMContentLoaded", () => {
+  const sliderWrapper = document.querySelector(".slider-wrapper");
+  const slides = document.querySelectorAll(".slider-wrapper img");
+  const dots = document.querySelectorAll(".slider-dots .dot");
+
+  let currentIndex = 0;
+  let startX = 0;
+  let currentTranslate = 0;
+  let prevTranslate = 0;
+  let isDragging = false;
+
+  function getSlideWidth() {
+    return sliderWrapper.clientWidth;
+  }
+
+  function setSliderPosition() {
+    sliderWrapper.style.transform = `translateX(${currentTranslate}px)`;
+  }
+
+  function updateActiveDot() {
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
+  }
+
+  // === START SENTUHAN ===
+  sliderWrapper.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    sliderWrapper.style.transition = "none";
   });
+
+  // === SAAT GESER ===
+  sliderWrapper.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    currentTranslate = prevTranslate + diff;
+    setSliderPosition();
+  });
+
+  // === AKHIR SENTUHAN ===
+  sliderWrapper.addEventListener("touchend", (e) => {
+    isDragging = false;
+    const movedBy = currentTranslate - prevTranslate;
+    const slideWidth = getSlideWidth();
+
+    if (movedBy < -50 && currentIndex < slides.length - 1) {
+      currentIndex += 1;
+    }
+    if (movedBy > 50 && currentIndex > 0) {
+      currentIndex -= 1;
+    }
+
+    currentTranslate = -currentIndex * slideWidth;
+    prevTranslate = currentTranslate;
+    sliderWrapper.style.transition = "transform 0.4s ease";
+    setSliderPosition();
+    updateActiveDot();
+  });
+
+  // === CEGAH GESER TEKS / SCROLL SAMBIL SLIDE ===
+  sliderWrapper.addEventListener("touchmove", (e) => {
+    if (isDragging) e.preventDefault();
+  });
+
+  // === SESUAIKAN SAAT RESIZE ===
+  window.addEventListener("resize", () => {
+    currentTranslate = -currentIndex * getSlideWidth();
+    prevTranslate = currentTranslate;
+    setSliderPosition();
+  });
+
+  // Inisialisasi awal
+  updateActiveDot();
+  setSliderPosition();
 });
-
-// === SLIDER FOTO MANUAL (STABIL SEMUA PERANGKAT) ===
-const sliderWrapper = document.querySelector(".slider-wrapper");
-const slides = document.querySelectorAll(".slider-wrapper img");
-const dots = document.querySelectorAll(".slider-dots .dot");
-
-let currentIndex = 0;
-let startX = 0;
-let currentTranslate = 0;
-let prevTranslate = 0;
-let isDragging = false;
-
-function updateSliderPosition() {
-  sliderWrapper.style.transition = "transform 0.4s ease";
-  sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-  dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
-}
-
-// tangkap sentuhan mulai
-sliderWrapper.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-  isDragging = true;
-  sliderWrapper.style.transition = "none";
-});
-
-// geser selama sentuhan
-sliderWrapper.addEventListener("touchmove", (e) => {
-  if (!isDragging) return;
-  const currentX = e.touches[0].clientX;
-  const diff = currentX - startX;
-  const move = -currentIndex * window.innerWidth + diff;
-  sliderWrapper.style.transform = `translateX(${move}px)`;
-});
-
-// lepaskan sentuhan
-sliderWrapper.addEventListener("touchend", (e) => {
-  if (!isDragging) return;
-  isDragging = false;
-
-  const endX = e.changedTouches[0].clientX;
-  const diff = endX - startX;
-
-  if (diff > 50 && currentIndex > 0) currentIndex--;
-  if (diff < -50 && currentIndex < slides.length - 1) currentIndex++;
-
-  updateSliderPosition();
-});
-
-// inisialisasi
-updateSliderPosition();
