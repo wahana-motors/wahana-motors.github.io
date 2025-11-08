@@ -170,59 +170,46 @@ footer a img:hover {
   opacity: 0.85;
   cursor: pointer;
 }
+
 .image-slider {
   position: relative;
+  width: 100%;
   overflow: hidden;
   border-radius: 12px;
   background: #f9f9f9;
+  touch-action: pan-y;
 }
 
 .slider-wrapper {
   display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+  transition: transform 0.4s ease;
 }
 
 .slider-wrapper img {
-  flex: 0 0 100%;
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  scroll-snap-align: start;
-  border-radius: 12px;
+  flex-shrink: 0;
+  user-select: none;
+  pointer-events: none;
 }
 
-/* --------------------------- */
-/* DOTS FIX - VISIBLE IN ANY DEVICE */
-/* --------------------------- */
 .slider-dots {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  position: relative;
-  z-index: 10;
+  text-align: center;
   margin-top: 8px;
-  padding: 8px 0;
-  background: transparent;
 }
 
 .slider-dots .dot {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
-  background-color: #c4c4c4;
-  transition: background-color 0.3s, transform 0.3s;
+  background: #ccc;
+  margin: 0 4px;
+  transition: background 0.3s;
 }
 
 .slider-dots .dot.active {
-  background-color: #222;
-  transform: scale(1.2);
+  background: #333;
 }
-
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
 @media (min-width: 768px) {
