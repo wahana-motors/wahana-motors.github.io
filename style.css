@@ -200,20 +200,21 @@ footer a img:hover {
 .slider-dots {
   text-align: center;
   margin-top: 10px;
+  color: #2ed5ff;
 }
 
 .slider-dots .dot {
   height: 8px;
   width: 8px;
   margin: 0 4px;
-  background-color: #bbb;
+  background-color: #eb9e34;
   border-radius: 50%;
   display: inline-block;
   transition: background-color 0.3s ease;
 }
 
 .slider-dots .dot.active {
-  background-color: #333;
+  background-color: #2eff6d;
 }
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
