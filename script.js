@@ -71,34 +71,55 @@ document.querySelectorAll(".tab").forEach(tab => {
 });
 
 // --- SLIDER MANUAL (untuk halaman post seperti beat.html) ---
-document.addEventListener("DOMContentLoaded", () => {
-  const sliders = document.querySelectorAll(".image-slider");
+// 🔹 Geser manual (swipe) di slider
+const sliderWrapper = document.querySelector('.slider-wrapper');
+let isDown = false;
+let startX;
+let scrollLeft;
 
-  sliders.forEach(slider => {
-    const wrapper = slider.querySelector(".slider-wrapper");
-    const dots = slider.querySelectorAll(".dot");
-    const slides = slider.querySelectorAll("img");
-
-    let index = 0;
-
-    // fungsi update tampilan slide
-    function showSlide(i) {
-      if (i < 0) index = slides.length - 1;
-      else if (i >= slides.length) index = 0;
-      else index = i;
-
-      wrapper.style.transform = `translateX(-${index * 100}%)`;
-
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[index].classList.add("active");
-    }
-
-    // klik titik
-    dots.forEach((dot, i) => {
-      dot.addEventListener("click", () => showSlide(i));
-    });
-
-    // inisialisasi
-    showSlide(0);
+if (sliderWrapper) {
+  sliderWrapper.addEventListener('mousedown', (e) => {
+    isDown = true;
+    sliderWrapper.classList.add('active');
+    startX = e.pageX - sliderWrapper.offsetLeft;
+    scrollLeft = sliderWrapper.scrollLeft;
   });
-});
+
+  sliderWrapper.addEventListener('mouseleave', () => {
+    isDown = false;
+    sliderWrapper.classList.remove('active');
+  });
+
+  sliderWrapper.addEventListener('mouseup', () => {
+    isDown = false;
+    sliderWrapper.classList.remove('active');
+  });
+
+  sliderWrapper.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - sliderWrapper.offsetLeft;
+    const walk = (x - startX) * 1.5; // kecepatan geser
+    sliderWrapper.scrollLeft = scrollLeft - walk;
+  });
+
+  // 🔸 Support untuk HP (touch)
+  let startTouchX = 0;
+  sliderWrapper.addEventListener('touchstart', (e) => {
+    startTouchX = e.touches[0].clientX;
+  });
+
+  sliderWrapper.addEventListener('touchmove', (e) => {
+    const moveX = e.touches[0].clientX;
+    const diff = startTouchX - moveX;
+
+    if (Math.abs(diff) > 30) { // biar gak terlalu sensitif
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      startTouchX = moveX; // reset posisi biar bisa terus geser
+    }
+  });
+}
