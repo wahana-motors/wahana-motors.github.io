@@ -195,26 +195,30 @@ footer a img:hover {
   object-fit: contain;
   background: #fff;
 }
-
-/* === DOT INDICATOR === */
+/* ============================= */
+/*   SLIDER DOT INDICATOR FIX    */
+/* ============================= */
 .slider-dots {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
   margin-top: 10px;
+  padding-bottom: 5px;
 }
 
 .slider-dots .dot {
-  height: 8px;
-  width: 8px;
-  margin: 0 4px;
-  background-color: #bbb;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  display: inline-block;
+  background-color: #bbb; /* Warna default (abu muda) */
   transition: background-color 0.3s ease;
 }
 
 .slider-dots .dot.active {
-  background-color: #333;
+  background-color: #333; /* Warna aktif (abu tua / hitam) */
 }
+
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
 @media (min-width: 768px) {
