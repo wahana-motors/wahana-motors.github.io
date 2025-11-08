@@ -1,53 +1,33 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Honda BeAT - Wahana Motors</title>
-  <link rel="stylesheet" href="/style.css">
-</head>
-<body>
+<main class="post-container">
+  <article class="post">
+    <h1>Honda BeAT</h1>
 
-  <!-- Header otomatis -->
-  <div id="header"></div>
-
-  <main class="post-container">
-    <article class="post">
-      <h1>Honda BeAT</h1>
-      <div class="image-slider">
-  <img src="https://via.placeholder.com/600x400/ff0000/ffffff?text=Foto+1" alt="Foto 1">
-  <img src="https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-900,f-auto,pr-true/uploads/product/feature/thumbnail-feature-brown-deluxe-sk-700x700pxl-24072025-011546.png" alt="Foto 2">
-  <img src="https://via.placeholder.com/600x400/0000ff/ffffff?text=Foto+3" alt="Foto 3">
-  <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png" alt="Foto 4">
-  <img src="https://via.placeholder.com/600x400/ff00ff/ffffff?text=Foto+5" alt="Foto 5">
+    <!-- 🔹 image slider -->
+    <div class="image-slider">
+      <div class="slider-wrapper">
+        <img src="https://via.placeholder.com/600x400/ff0000/ffffff?text=Foto+1" alt="Foto 1">
+        <img src="https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-900,f-auto,pr-true/uploads/product/feature/thumbnail-feature-brown-deluxe-sk-700x700pxl-24072025-011546.png" alt="Foto 2">
+        <img src="https://via.placeholder.com/600x400/0000ff/ffffff?text=Foto+3" alt="Foto 3">
+        <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png" alt="Foto 4">
+        <img src="https://via.placeholder.com/600x400/ff00ff/ffffff?text=Foto+5" alt="Foto 5">
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-        Vivamus malesuada convallis ante, eu pretium nulla iaculis non. 
-        Aliquam erat volutpat. Suspendisse potenti. Sed venenatis purus et tortor pharetra, 
-        vel gravida nibh consequat. Nullam tincidunt nisi sed malesuada fermentum. 
-        In hac habitasse platea dictumst.
-      </p>
-    </article>
-  </main>
 
-  <!-- Footer otomatis -->
-  <div id="footer"></div>
+      <!-- 🔹 titik navigasi -->
+      <div class="slider-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
 
-  <script>
-    // Fungsi untuk memuat header dan footer dari file terpisah
-    async function loadComponent(id, file) {
-      try {
-        const res = await fetch("/" + file);
-        const html = await res.text();
-        document.getElementById(id).innerHTML = html;
-      } catch (e) {
-        console.error("Gagal memuat " + file, e);
-      }
-    }
-
-    loadComponent("header", "header.html");
-    loadComponent("footer", "footer.html");
-  </script>
-</body>
-</html>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Vivamus malesuada convallis ante, eu pretium nulla iaculis non.
+      Aliquam erat volutpat. Suspendisse potenti. Sed venenatis purus et tortor pharetra,
+      vel gravida nibh consequat. Nullam tincidunt nisi sed malesuada fermentum.
+      In hac habitasse platea dictumst.
+    </p>
+  </article>
+</main>
