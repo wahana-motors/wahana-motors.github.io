@@ -89,77 +89,52 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// ==========================
-// SLIDER MANUAL (tanpa otomatis)
-// ==========================
-document.addEventListener("DOMContentLoaded", function () {
-  const slider = document.querySelector(".slider-wrapper");
-  const images = document.querySelectorAll(".slider-wrapper img");
-  const dots = document.querySelectorAll(".slider-dots .dot");
+// === SLIDER FOTO MANUAL TANPA AUTO DAN TANPA BUG ===
+const sliderWrapper = document.querySelector(".slider-wrapper");
+const slides = document.querySelectorAll(".slider-wrapper img");
+const dots = document.querySelectorAll(".slider-dots .dot");
 
-  // Kalau gak ada slider di halaman, hentikan script
-  if (!slider || images.length === 0) return;
+let currentIndex = 0;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let isDragging = false;
 
-  let index = 0;
-  let startX = 0;
-  let currentX = 0;
-  let isDragging = false;
+function updateSliderPosition() {
+  sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+  dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
+}
 
-  function updateSlider() {
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
-  }
-
-  // Geser manual pakai sentuhan (mobile)
-  slider.addEventListener("touchstart", (e) => {
+slides.forEach((slide, index) => {
+  // mulai drag
+  slide.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
   });
 
-  slider.addEventListener("touchmove", (e) => {
+  // drag gerak
+  slide.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
-    currentX = e.touches[0].clientX;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    currentTranslate = -currentIndex * window.innerWidth + diff;
+    sliderWrapper.style.transition = "none";
+    sliderWrapper.style.transform = `translateX(${currentTranslate}px)`;
   });
 
-  slider.addEventListener("touchend", () => {
-    if (!isDragging) return;
-    const diff = startX - currentX;
-
-    if (diff > 50 && index < images.length - 1) index++;
-    else if (diff < -50 && index > 0) index--;
-
-    updateSlider();
+  // lepas drag
+  slide.addEventListener("touchend", (e) => {
     isDragging = false;
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (diff > 50 && currentIndex > 0) currentIndex--;
+    if (diff < -50 && currentIndex < slides.length - 1) currentIndex++;
+
+    sliderWrapper.style.transition = "transform 0.4s ease";
+    updateSliderPosition();
   });
-
-  // Geser manual pakai mouse (desktop)
-  slider.addEventListener("mousedown", (e) => {
-    startX = e.clientX;
-    isDragging = true;
-  });
-
-  slider.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-    currentX = e.clientX;
-  });
-
-  slider.addEventListener("mouseup", () => {
-    if (!isDragging) return;
-    const diff = startX - currentX;
-
-    if (diff > 50 && index < images.length - 1) index++;
-    else if (diff < -50 && index > 0) index--;
-
-    updateSlider();
-    isDragging = false;
-  });
-
-  slider.addEventListener("mouseleave", () => {
-    if (isDragging) {
-      isDragging = false;
-    }
-  });
-
-  // Inisialisasi tampilan awal
-  updateSlider();
 });
+
+// inisialisasi awal
+updateSliderPosition();
