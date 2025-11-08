@@ -144,96 +144,6 @@ footer a img:hover {
   opacity: 0.85;
   cursor: pointer;
 }
-
-/* === FOOTER === */
-footer {
-  background: #111;
-  color: #fff;
-  padding: 40px 20px 25px;
-  margin-top: 50px;
-  font-family: 'Arial', sans-serif;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1100px;
-  margin: 0 auto;
-  gap: 30px;
-}
-
-.footer-left img {
-  width: 120px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.footer-left p {
-  margin: 4px 0;
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.footer-right {
-  display: flex;
-  flex-direction: row;
-  gap: 60px;
-}
-
-.footer-menu h4,
-.footer-social h4 {
-  font-size: 15px;
-  margin-bottom: 10px;
-  color: #fff;
-}
-
-.footer-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer-menu ul li {
-  margin-bottom: 6px;
-}
-
-.footer-menu ul li a {
-  text-decoration: none;
-  color: #ccc;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.footer-menu ul li a:hover {
-  color: #fff;
-}
-
-/* === SOCIAL ICONS === */
-.social-icons a {
-  display: inline-block;
-  color: #fff;
-  font-size: 18px;
-  margin-right: 12px;
-  transition: transform 0.2s, color 0.3s;
-}
-
-.social-icons a:hover {
-  color: #e60012; /* warna merah Honda */
-  transform: scale(1.15);
-}
-
-/* COPYRIGHT */
-footer small {
-  display: block;
-  text-align: center;
-  margin-top: 30px;
-  font-size: 12px;
-  color: #aaa;
-}
-
-
 /* === SLIDER KHUSUS HALAMAN POST (Seperti beat.html) === */
 .image-slider {
   position: relative;
@@ -259,7 +169,113 @@ footer small {
   background: #fff;
 }
 
-/* === DOT INDICATOR === */
+/* === FOOTER === */
+footer {
+  background: #111;
+  color: #fff;
+  padding: 30px 5vw;
+  border-top: 3px solid #e60012;
+  font-family: 'Arial', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Kontainer utama */
+.footer-container {
+  display: flex;
+  justify-content: flex-end; /* semua ke kanan */
+  align-items: center;
+  gap: 50px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+/* Logo kiri (opsional, kalau ada) */
+.footer-logo img {
+  width: 110px;
+  height: auto;
+}
+
+/* Alamat */
+.footer-address {
+  text-align: right;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
+}
+
+/* Menu */
+.footer-menu {
+  text-align: right;
+}
+
+.footer-menu h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+
+.footer-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-menu ul li {
+  margin-bottom: 4px;
+}
+
+.footer-menu ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-menu ul li a:hover {
+  color: #fff;
+}
+
+/* Sosial media */
+.footer-social {
+  text-align: right;
+}
+
+.footer-social h4 {
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 18px;
+  margin-left: 10px;
+  transition: transform 0.2s, color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #e60012;
+  transform: scale(1.15);
+}
+
+/* Copyright */
+footer small {
+  display: block;
+  text-align: right;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #aaa;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 25px;
+  }
+}
 
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
@@ -267,19 +283,6 @@ footer small {
   .slider-wrapper img {
     min-width: 100%;
     max-width: 100%;
-  }
-  .footer-container {
-    flex-direction: column;
-    text-align: left;
-  }
-
-  .footer-right {
-    flex-direction: column;
-    gap: 25px;
-  }
-
-  .social-icons a {
-    font-size: 20px;
   }
 }
 
