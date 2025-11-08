@@ -173,96 +173,89 @@ footer a img:hover {
 footer {
   background: #111;
   color: #fff;
-  padding: 30px 5vw;
-  border-top: 3px solid #e60012;
+  padding: 40px 5vw 25px;
+  margin-top: 50px;
   font-family: 'Arial', sans-serif;
-  width: 100%;
-  box-sizing: border-box;
 }
 
-/* Kontainer utama */
+/* FLEX container utama */
 .footer-container {
   display: flex;
-  justify-content: flex-end; /* semua ke kanan */
-  align-items: center;
-  gap: 50px;
-  flex-wrap: nowrap;
-  white-space: nowrap;
-  overflow-x: auto;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
-/* Logo kiri (opsional, kalau ada) */
-.footer-logo img {
-  width: 110px;
+.footer-left img {
+  width: 120px;
   height: auto;
+  margin-bottom: 10px;
 }
 
-/* Alamat */
-.footer-address {
-  text-align: right;
+.footer-left p {
+  margin: 4px 0;
   font-size: 14px;
   line-height: 1.6;
-  color: #ddd;
+  color: #fff;
 }
 
-/* Menu */
-.footer-menu {
-  text-align: right;
+/* Bagian kanan: menu + sosial */
+.footer-right {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 80px;
 }
 
-.footer-menu h4 {
+.footer-menu h4,
+.footer-social h4 {
   font-size: 15px;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
   color: #fff;
 }
 
 .footer-menu ul {
   list-style: none;
-  margin: 0;
   padding: 0;
+  margin: 0;
 }
 
 .footer-menu ul li {
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .footer-menu ul li a {
-  color: #ccc;
   text-decoration: none;
+  color: #ccc;
   font-size: 14px;
+  transition: color 0.3s;
 }
 
 .footer-menu ul li a:hover {
   color: #fff;
 }
 
-/* Sosial media */
-.footer-social {
-  text-align: right;
-}
-
-.footer-social h4 {
-  font-size: 15px;
-  margin-bottom: 8px;
-}
-
+/* === SOCIAL ICONS === */
 .social-icons a {
+  display: inline-block;
   color: #fff;
   font-size: 18px;
-  margin-left: 10px;
+  margin-right: 12px;
   transition: transform 0.2s, color 0.3s;
 }
 
 .social-icons a:hover {
-  color: #e60012;
+  color: #e60012; /* warna merah Honda */
   transform: scale(1.15);
 }
 
-/* Copyright */
+/* COPYRIGHT */
 footer small {
   display: block;
-  text-align: right;
-  margin-top: 20px;
+  text-align: center;
+  margin-top: 30px;
   font-size: 12px;
   color: #aaa;
 }
@@ -271,9 +264,16 @@ footer small {
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
-    align-items: flex-end;
-    text-align: right;
+    gap: 30px;
+  }
+
+  .footer-right {
+    flex-direction: column;
     gap: 25px;
+  }
+
+  .social-icons a {
+    font-size: 20px;
   }
 }
 
