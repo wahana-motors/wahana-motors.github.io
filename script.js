@@ -5,7 +5,7 @@ const motors = [
   {
     name: "BeAT",
     price: "Rp. 18.980.000",
-    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,f-auto,pr-true/uploads/product-draft/colors/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.jpg",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/produk-thumbnail-brown-deluxe-400x300pxl-1-24072025-010253.png",
     category: "matic",
     new: true,
     link: "matic/beat.html"
@@ -13,7 +13,7 @@ const motors = [
   {
     name: "BeAT Street",
     price: "Rp. 19.851.000",
-    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,f-auto,pr-true/uploads/product-draft/colors/variant-web-beat-street-white-copy-24072025-011032.jpg",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/produk-thumbnail-white-400x300pxl-1-24072025-010431.png",
     category: "matic",
     new: true,
     link: "matic/beat-street.html"
