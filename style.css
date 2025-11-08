@@ -175,36 +175,40 @@ footer a img:hover {
 .image-slider {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
-  max-width: 100%;
-  margin: 15px auto;
-  background: #f8f8f8;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
 }
+
 .slider-wrapper {
   display: flex;
-  transition: transform 0.3s ease;
-}
-.slider-wrapper img {
+  transition: transform 0.4s ease-in-out;
   width: 100%;
-  flex-shrink: 0;
-  border-radius: 12px;
-  user-select: none;
-  pointer-events: none;
 }
+
+.slider-wrapper img {
+  width: 100%;          /* pastikan tiap gambar selebar slider */
+  flex-shrink: 0;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Titik indikator */
 .slider-dots {
   text-align: center;
   margin-top: 10px;
 }
-.dot {
-  display: inline-block;
-  width: 10px;
-  height: 10px;
+
+.slider-dots .dot {
+  height: 8px;
+  width: 8px;
   margin: 0 4px;
-  border-radius: 50%;
   background-color: #bbb;
-  transition: background-color 0.3s;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
 }
-.dot.active {
+
+.slider-dots .dot.active {
   background-color: #333;
 }
 
