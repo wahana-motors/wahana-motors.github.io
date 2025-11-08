@@ -70,63 +70,48 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-function initImageSlider() {
-  const sliders = document.querySelectorAll(".image-slider");
-  if (!sliders.length) return;
+// === SLIDER FOTO (perbaikan biar 1 dot = 1 gambar) ===
+const slider = document.querySelector('.image-slider');
+if (slider) {
+  const wrapper = slider.querySelector('.slider-wrapper');
+  const dots = slider.querySelectorAll('.dot');
+  const slides = slider.querySelectorAll('.slider-wrapper img');
+  let index = 0;
+  let startX = 0;
+  let isDragging = false;
+  let currentTranslate = 0;
 
-  sliders.forEach(slider => {
-    const wrapper = slider.querySelector(".slider-wrapper");
-    const slides = Array.from(wrapper.querySelectorAll("img"));
-    const dotsContainer = slider.querySelector(".slider-dots");
-    dotsContainer.innerHTML = slides.map(() => `<span class="dot"></span>`).join("");
-    const dots = Array.from(dotsContainer.querySelectorAll(".dot"));
-    let index = 0;
+  function updateSlider() {
+    const offset = -index * 100; // 1 dot = 1 gambar
+    wrapper.style.transform = `translateX(${offset}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+  }
 
-    // styling dasar
-    wrapper.style.display = "flex";
-    wrapper.style.transition = "transform 0.3s ease";
-    slides.forEach(img => {
-      img.style.width = "100%";
-      img.style.flexShrink = "0";
-    });
-
-    // update tampilan slide & dot aktif
-    function showSlide(i) {
-      index = Math.max(0, Math.min(i, slides.length - 1));
-      wrapper.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach((d, di) => d.classList.toggle("active", di === index));
-    }
-
-    // fungsi swipe (touch)
-    let startX = 0, isDragging = false;
-    slider.addEventListener("touchstart", e => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-      wrapper.style.transition = "none";
-    }, { passive: true });
-
-    slider.addEventListener("touchmove", e => {
-      if (!isDragging) return;
-      const currentX = e.touches[0].clientX;
-      const diff = currentX - startX;
-      wrapper.style.transform = `translateX(${diff - index * slider.clientWidth}px)`;
-    }, { passive: true });
-
-    slider.addEventListener("touchend", e => {
-      if (!isDragging) return;
-      isDragging = false;
-      wrapper.style.transition = "transform 0.3s ease";
-      const endX = e.changedTouches[0].clientX;
-      const diff = endX - startX;
-      if (diff > 50 && index > 0) index--;
-      else if (diff < -50 && index < slides.length - 1) index++;
-      showSlide(index);
-    });
-
-    showSlide(0);
+  // Geser manual lewat swipe/touch
+  wrapper.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
   });
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-  setTimeout(initImageSlider, 100);
-});
+  wrapper.addEventListener('touchmove', e => {
+    if (!isDragging) return;
+    const moveX = e.touches[0].clientX - startX;
+    const percentage = moveX / slider.clientWidth * 100;
+    wrapper.style.transform = `translateX(${currentTranslate + percentage}%)`;
+  });
+
+  wrapper.addEventListener('touchend', e => {
+    isDragging = false;
+    const endX = e.changedTouches[0].clientX;
+    const diff = endX - startX;
+
+    if (diff > 50 && index > 0) index--; // Geser kiri
+    if (diff < -50 && index < slides.length - 1) index++; // Geser kanan
+
+    updateSlider();
+    currentTranslate = -index * 100;
+  });
+
+  // Inisialisasi awal
+  updateSlider();
+}
