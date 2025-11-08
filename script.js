@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// === SLIDER FOTO MANUAL TANPA AUTO DAN TANPA BUG ===
+// === SLIDER FOTO MANUAL (STABIL SEMUA PERANGKAT) ===
 const sliderWrapper = document.querySelector(".slider-wrapper");
 const slides = document.querySelectorAll(".slider-wrapper img");
 const dots = document.querySelectorAll(".slider-dots .dot");
@@ -101,40 +101,40 @@ let prevTranslate = 0;
 let isDragging = false;
 
 function updateSliderPosition() {
+  sliderWrapper.style.transition = "transform 0.4s ease";
   sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
   dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
 }
 
-slides.forEach((slide, index) => {
-  // mulai drag
-  slide.addEventListener("touchstart", (e) => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-  });
-
-  // drag gerak
-  slide.addEventListener("touchmove", (e) => {
-    if (!isDragging) return;
-    const currentX = e.touches[0].clientX;
-    const diff = currentX - startX;
-    currentTranslate = -currentIndex * window.innerWidth + diff;
-    sliderWrapper.style.transition = "none";
-    sliderWrapper.style.transform = `translateX(${currentTranslate}px)`;
-  });
-
-  // lepas drag
-  slide.addEventListener("touchend", (e) => {
-    isDragging = false;
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
-
-    if (diff > 50 && currentIndex > 0) currentIndex--;
-    if (diff < -50 && currentIndex < slides.length - 1) currentIndex++;
-
-    sliderWrapper.style.transition = "transform 0.4s ease";
-    updateSliderPosition();
-  });
+// tangkap sentuhan mulai
+sliderWrapper.addEventListener("touchstart", (e) => {
+  startX = e.touches[0].clientX;
+  isDragging = true;
+  sliderWrapper.style.transition = "none";
 });
 
-// inisialisasi awal
+// geser selama sentuhan
+sliderWrapper.addEventListener("touchmove", (e) => {
+  if (!isDragging) return;
+  const currentX = e.touches[0].clientX;
+  const diff = currentX - startX;
+  const move = -currentIndex * window.innerWidth + diff;
+  sliderWrapper.style.transform = `translateX(${move}px)`;
+});
+
+// lepaskan sentuhan
+sliderWrapper.addEventListener("touchend", (e) => {
+  if (!isDragging) return;
+  isDragging = false;
+
+  const endX = e.changedTouches[0].clientX;
+  const diff = endX - startX;
+
+  if (diff > 50 && currentIndex > 0) currentIndex--;
+  if (diff < -50 && currentIndex < slides.length - 1) currentIndex++;
+
+  updateSliderPosition();
+});
+
+// inisialisasi
 updateSliderPosition();
