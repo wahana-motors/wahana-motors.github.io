@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Wahana Motors - Pilih Motor Favorit Anda</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honda BeAT - Wahana Motors</title>
+  <link rel="stylesheet" href="../style.css">
+  <script src="../include.js" defer></script>
+  <script src="../script.js" defer></script>
 </head>
 <body>
-<header>
-  <img src="https://lh3.googleusercontent.com/d/14Bh4xJzopYTn8lvaScoBkdEGwUPTdKSo" alt="Honda Logo">
-</header>
+  <!-- Header -->
+  <div data-include="../header.html"></div>
 
-<main>
-  <h2>Pilih Motor Favorit Anda</h2>
-  <div class="tabs">
-    <div class="tab active" data-category="matic">Matic</div>
-    <div class="tab" data-category="sport">Sport</div>
-    <div class="tab" data-category="cub">Cub</div>
-    <div class="tab" data-category="ev">EV</div>
-    <div class="tab" data-category="bigbike">BigBike</div>
+  <main class="post-container">
+    <article class="post">
+      <h1>Honda BeAT</h1>
+<div class="image-slider">
+  <div class="slider-wrapper">
+    <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png" alt="Foto 1">
+    <img src="https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-900,f-auto,pr-true/uploads/product/feature/thumbnail-feature-brown-deluxe-sk-700x700pxl-24072025-011546.png" alt="Foto 2">
+    <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png" alt="Foto 3">
+    <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png" alt="Foto 4">
+    <img src="https://i.ibb.co/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png" alt="Foto 5">
   </div>
+  <div class="slider-dots"></div>
+</div>
+      
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        Vivamus malesuada convallis ante, eu pretium nulla iaculis non.
+        Aliquam erat volutpat. Suspendisse potenti. Sed venenatis purus et tortor pharetra,
+        vel gravida nibh consequat. Nullam tincidunt nisi sed malesuada fermentum.
+        In hac habitasse platea dictumst.
+      </p>
+    </article>
+  </main>
 
-  <div class="motor-container" id="motorList"></div>
-</main>
-
-<footer>
-  <img src="https://lh3.googleusercontent.com/d/11cNHu9zxFrU4ffBDHJQ-ytu1BT7uEUbG" alt="Honda Logo">
-  <p><strong>Alamat</strong><br>
-  Jl. Raya Kopo No.137, Katapang, Kec. Katapang, Kabupaten Bandung, Jawa Barat 40921</p>
-  <small>© 2025 PT Astra Honda Motor. All Rights Reserved.</small>
-</footer>
-
-<script src="script.js"></script>
+  <!-- Footer -->
+  <div data-include="../footer.html"></div>
 </body>
 </html>
