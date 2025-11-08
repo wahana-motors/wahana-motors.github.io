@@ -174,43 +174,46 @@ footer {
   background: #111;
   color: #fff;
   padding: 40px 5vw 25px;
-  margin-top: 50px;
+  border-top: 3px solid #e60012;
   font-family: 'Arial', sans-serif;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/* FLEX container utama */
 .footer-container {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-wrap: nowrap;
   gap: 40px;
-  flex-wrap: wrap;
-  width: 100%;
 }
 
-.footer-left img {
+/* Bagian kiri */
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.footer-logo img {
   width: 120px;
   height: auto;
-  margin-bottom: 10px;
 }
 
-.footer-left p {
-  margin: 4px 0;
+.footer-address {
   font-size: 14px;
+  color: #ccc;
   line-height: 1.6;
-  color: #fff;
 }
 
-/* Bagian kanan: menu + sosial */
-.footer-right {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  gap: 80px;
+/* Menu tengah */
+.footer-menu {
+  flex: 0.5;
+  text-align: center;
 }
 
-.footer-menu h4,
-.footer-social h4 {
+.footer-menu h4 {
   font-size: 15px;
   margin-bottom: 10px;
   color: #fff;
@@ -218,65 +221,78 @@ footer {
 
 .footer-menu ul {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .footer-menu ul li {
-  margin-bottom: 6px;
+  margin-bottom: 5px;
 }
 
 .footer-menu ul li a {
-  text-decoration: none;
   color: #ccc;
+  text-decoration: none;
   font-size: 14px;
-  transition: color 0.3s;
 }
 
 .footer-menu ul li a:hover {
   color: #fff;
 }
 
-/* === SOCIAL ICONS === */
+/* Ikuti Kami kanan */
+.footer-social {
+  flex: 0.5;
+  text-align: right;
+}
+
+.footer-social h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
 .social-icons a {
-  display: inline-block;
   color: #fff;
   font-size: 18px;
-  margin-right: 12px;
+  margin-left: 10px;
   transition: transform 0.2s, color 0.3s;
 }
 
 .social-icons a:hover {
-  color: #e60012; /* warna merah Honda */
+  color: #e60012;
   transform: scale(1.15);
 }
 
-/* COPYRIGHT */
+/* Copyright */
 footer small {
   display: block;
   text-align: center;
-  margin-top: 30px;
+  margin-top: 25px;
   font-size: 12px;
   color: #aaa;
 }
 
-/* === RESPONSIVE === */
+/* === RESPONSIVE (Mobile) === */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
-    gap: 30px;
-  }
-
-  .footer-right {
-    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 25px;
   }
 
+  .footer-left, 
+  .footer-menu, 
+  .footer-social {
+    flex: unset;
+    text-align: center;
+  }
+
   .social-icons a {
-    font-size: 20px;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 }
-
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
 @media (min-width: 768px) {
