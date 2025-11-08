@@ -5,7 +5,7 @@ const motors = [
   {
     name: "BeAT",
     price: "Rp. 18.980.000",
-    img: "https://i.ibb.co.com/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,f-auto,pr-true/uploads/product-draft/colors/variant-web-beat-sporty-blue-deluxe-sk-copy-24072025-010915.jpg",
     category: "matic",
     new: true,
     link: "matic/beat.html"
@@ -13,7 +13,7 @@ const motors = [
   {
     name: "BeAT Street",
     price: "Rp. 19.851.000",
-    img: "https://i.ibb.co.com/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,f-auto,pr-true/uploads/product-draft/colors/variant-web-beat-street-white-copy-24072025-011032.jpg",
     category: "matic",
     new: true,
     link: "matic/beat-street.html"
@@ -21,7 +21,7 @@ const motors = [
   {
     name: "Genio",
     price: "Rp. 20.075.000",
-    img: "https://i.ibb.co.com/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-genio-new-3-29102025-075221.png",
     category: "sport",
     new: true,
     link: "matic/genio.html"
@@ -29,7 +29,7 @@ const motors = [
   {
     name: "Scoopy",
     price: "Rp. 22.876.000",
-    img: "https://i.ibb.co.com/BHNB9ygJ/08-thumbnail-features-700x700-29102025-031948.png",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:q-70,f-auto,pr-true/uploads/product-draft/colors/5-39-05112024-030657.png",
     category: "matic",
     new: false,
     link: "matic/scoopy.html"
