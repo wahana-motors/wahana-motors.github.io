@@ -133,31 +133,88 @@ h2 {
   border-color: red;
 }
 
-/* === Footer === */
+/* === FOOTER === */
 footer {
   background: #111;
-  color: #000000;
-  text-align: left;
-  padding: 25px 20px;
+  color: #fff;
+  padding: 40px 20px 25px;
   margin-top: 50px;
+  font-family: 'Arial', sans-serif;
 }
-footer img {
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.footer-left img {
   width: 120px;
   height: auto;
   margin-bottom: 10px;
 }
-footer p {
+
+.footer-left p {
   margin: 4px 0;
   font-size: 14px;
-  line-height: 1.5;
-  color:#ffffff;
+  line-height: 1.6;
 }
+
+.footer-right {
+  display: flex;
+  gap: 50px;
+}
+
+.footer-menu h4,
+.footer-social h4 {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.footer-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-menu ul li {
+  margin-bottom: 6px;
+}
+
+.footer-menu ul li a {
+  text-decoration: none;
+  color: #ccc;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.footer-menu ul li a:hover {
+  color: #fff;
+}
+
+/* === SOCIAL ICONS === */
+.social-icons a {
+  display: inline-block;
+  color: #fff;
+  font-size: 18px;
+  margin-right: 12px;
+  transition: color 0.3s;
+}
+
+.social-icons a:hover {
+  color: #e60012; /* warna merah Honda */
+}
+
 footer small {
   display: block;
   text-align: center;
-  margin-top: 15px;
+  margin-top: 30px;
   font-size: 12px;
-  color: #ffffff;
+  color: #aaa;
 }
 
 header a img,
@@ -204,6 +261,16 @@ footer a img:hover {
   .slider-wrapper img {
     min-width: 100%;
     max-width: 100%;
+  }
+    .footer-container {
+    flex-direction: column;
+    text-align: left;
+    gap: 30px;
+  }
+
+  .footer-right {
+    flex-direction: column;
+    gap: 20px;
   }
 }
 
