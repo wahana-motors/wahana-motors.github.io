@@ -189,6 +189,7 @@ footer a img:hover {
   width: 100%;
   flex-shrink: 0;
   user-select: none;
+  -webkit-user-drag: none;
   pointer-events: none;
 }
 
@@ -210,6 +211,7 @@ footer a img:hover {
 .slider-dots .dot.active {
   background: #333;
 }
+
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
 @media (min-width: 768px) {
