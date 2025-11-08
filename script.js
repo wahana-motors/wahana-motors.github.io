@@ -70,11 +70,13 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-// === SLIDER FOTO MANUAL TANPA AUTO, FULL FIX ===
+// === SLIDER FOTO MANUAL TANPA AUTO (FIX FINAL) ===
 document.addEventListener("DOMContentLoaded", () => {
   const sliderWrapper = document.querySelector(".slider-wrapper");
   const slides = document.querySelectorAll(".slider-wrapper img");
   const dots = document.querySelectorAll(".slider-dots .dot");
+
+  if (!sliderWrapper || slides.length === 0) return; // kalau nggak ada slider, skip
 
   let currentIndex = 0;
   let startX = 0;
@@ -82,8 +84,9 @@ document.addEventListener("DOMContentLoaded", () => {
   let prevTranslate = 0;
   let isDragging = false;
 
+  // Gunakan lebar gambar pertama agar stabil
   function getSlideWidth() {
-    return sliderWrapper.clientWidth;
+    return slides[0].clientWidth;
   }
 
   function setSliderPosition() {
@@ -94,32 +97,32 @@ document.addEventListener("DOMContentLoaded", () => {
     dots.forEach((dot, i) => dot.classList.toggle("active", i === currentIndex));
   }
 
-  // === START SENTUHAN ===
+  // === Mulai sentuh ===
   sliderWrapper.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
     sliderWrapper.style.transition = "none";
   });
 
-  // === SAAT GESER ===
+  // === Saat digeser ===
   sliderWrapper.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
     const currentX = e.touches[0].clientX;
     const diff = currentX - startX;
     currentTranslate = prevTranslate + diff;
     setSliderPosition();
+    e.preventDefault();
   });
 
-  // === AKHIR SENTUHAN ===
-  sliderWrapper.addEventListener("touchend", (e) => {
+  // === Saat selesai geser ===
+  sliderWrapper.addEventListener("touchend", () => {
     isDragging = false;
     const movedBy = currentTranslate - prevTranslate;
     const slideWidth = getSlideWidth();
 
     if (movedBy < -50 && currentIndex < slides.length - 1) {
       currentIndex += 1;
-    }
-    if (movedBy > 50 && currentIndex > 0) {
+    } else if (movedBy > 50 && currentIndex > 0) {
       currentIndex -= 1;
     }
 
@@ -130,19 +133,14 @@ document.addEventListener("DOMContentLoaded", () => {
     updateActiveDot();
   });
 
-  // === CEGAH GESER TEKS / SCROLL SAMBIL SLIDE ===
-  sliderWrapper.addEventListener("touchmove", (e) => {
-    if (isDragging) e.preventDefault();
-  });
-
-  // === SESUAIKAN SAAT RESIZE ===
+  // === Saat resize layar ===
   window.addEventListener("resize", () => {
     currentTranslate = -currentIndex * getSlideWidth();
     prevTranslate = currentTranslate;
     setSliderPosition();
   });
 
-  // Inisialisasi awal
+  // Inisialisasi pertama
   updateActiveDot();
   setSliderPosition();
 });
