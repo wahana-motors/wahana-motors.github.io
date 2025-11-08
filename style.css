@@ -175,46 +175,63 @@ footer a img:hover {
 .image-slider {
   position: relative;
   width: 100%;
-  max-width: 700px; /* biar gak terlalu besar di desktop */
+  max-width: 700px;
   margin: 0 auto 1.5rem;
-  overflow: hidden;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  display: flex;
+  gap: 10px;
   border-radius: 12px;
   background: #f8f8f8;
+  scroll-behavior: smooth;
 }
 
-.slider-wrapper {
-  display: flex;
+.image-slider img {
+  flex: 0 0 100%;
   width: 100%;
-  transition: transform 0.4s ease-in-out;
-  touch-action: pan-y;
-}
-
-.slider-wrapper img {
-  width: 100%;
-  flex-shrink: 0;
+  scroll-snap-align: start;
+  border-radius: 12px;
   object-fit: contain;
   background: #fff;
 }
 
-/* === DOT INDICATOR === */
-.slider-dots {
+/* === EFEK GRADIENT DI KANAN (tanda masih bisa geser) === */
+.image-slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.95), transparent);
+  border-radius: 0 12px 12px 0;
+}
+
+/* === TEKS PETUNJUK DI BAWAH SLIDER === */
+.slide-hint {
   text-align: center;
-  margin-top: 10px;
+  font-size: 14px;
+  color: #999;
+  margin-top: 8px;
+  font-style: italic;
 }
 
-.slider-dots .dot {
-  height: 8px;
-  width: 8px;
-  margin: 0 4px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease;
+/* === RESPONSIVE: agar tetap bagus di layar kecil === */
+@media (max-width: 600px) {
+  .image-slider {
+    gap: 6px;
+  }
+
+  .image-slider::after {
+    width: 40px;
+  }
+
+  .slide-hint {
+    font-size: 13px;
+  }
 }
 
-.slider-dots .dot.active {
-  background-color: #333;
-}
 
 /* === RESPONSIVE FIX (agar desktop tetap 1 foto per slide) === */
 @media (min-width: 768px) {
