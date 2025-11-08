@@ -70,48 +70,96 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-// === SLIDER FOTO (perbaikan biar 1 dot = 1 gambar) ===
-const slider = document.querySelector('.image-slider');
-if (slider) {
-  const wrapper = slider.querySelector('.slider-wrapper');
-  const dots = slider.querySelectorAll('.dot');
-  const slides = slider.querySelectorAll('.slider-wrapper img');
+// ==========================
+// Fungsi include header/footer
+// ==========================
+document.addEventListener("DOMContentLoaded", function () {
+  const includes = document.querySelectorAll("[data-include]");
+  includes.forEach(el => {
+    const file = el.getAttribute("data-include");
+    fetch(file)
+      .then(res => {
+        if (!res.ok) throw new Error(`Gagal memuat ${file}`);
+        return res.text();
+      })
+      .then(data => {
+        el.innerHTML = data;
+      })
+      .catch(err => console.error(err));
+  });
+});
+
+// ==========================
+// SLIDER MANUAL (tanpa otomatis)
+// ==========================
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".slider-wrapper");
+  const images = document.querySelectorAll(".slider-wrapper img");
+  const dots = document.querySelectorAll(".slider-dots .dot");
+
+  // Kalau gak ada slider di halaman, hentikan script
+  if (!slider || images.length === 0) return;
+
   let index = 0;
   let startX = 0;
+  let currentX = 0;
   let isDragging = false;
-  let currentTranslate = 0;
 
   function updateSlider() {
-    const offset = -index * 100; // 1 dot = 1 gambar
-    wrapper.style.transform = `translateX(${offset}%)`;
-    dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
   }
 
-  // Geser manual lewat swipe/touch
-  wrapper.addEventListener('touchstart', e => {
+  // Geser manual pakai sentuhan (mobile)
+  slider.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
     isDragging = true;
   });
 
-  wrapper.addEventListener('touchmove', e => {
+  slider.addEventListener("touchmove", (e) => {
     if (!isDragging) return;
-    const moveX = e.touches[0].clientX - startX;
-    const percentage = moveX / slider.clientWidth * 100;
-    wrapper.style.transform = `translateX(${currentTranslate + percentage}%)`;
+    currentX = e.touches[0].clientX;
   });
 
-  wrapper.addEventListener('touchend', e => {
-    isDragging = false;
-    const endX = e.changedTouches[0].clientX;
-    const diff = endX - startX;
+  slider.addEventListener("touchend", () => {
+    if (!isDragging) return;
+    const diff = startX - currentX;
 
-    if (diff > 50 && index > 0) index--; // Geser kiri
-    if (diff < -50 && index < slides.length - 1) index++; // Geser kanan
+    if (diff > 50 && index < images.length - 1) index++;
+    else if (diff < -50 && index > 0) index--;
 
     updateSlider();
-    currentTranslate = -index * 100;
+    isDragging = false;
   });
 
-  // Inisialisasi awal
+  // Geser manual pakai mouse (desktop)
+  slider.addEventListener("mousedown", (e) => {
+    startX = e.clientX;
+    isDragging = true;
+  });
+
+  slider.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX;
+  });
+
+  slider.addEventListener("mouseup", () => {
+    if (!isDragging) return;
+    const diff = startX - currentX;
+
+    if (diff > 50 && index < images.length - 1) index++;
+    else if (diff < -50 && index > 0) index--;
+
+    updateSlider();
+    isDragging = false;
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    if (isDragging) {
+      isDragging = false;
+    }
+  });
+
+  // Inisialisasi tampilan awal
   updateSlider();
-}
+});
