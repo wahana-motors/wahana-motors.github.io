@@ -70,29 +70,63 @@ document.querySelectorAll(".tab").forEach(tab => {
   });
 });
 
-// 🔹 Swipe gesture sederhana untuk HP (tanpa ganggu klik)
-const slider = document.querySelector('.slider-wrapper');
-let startX = 0;
-let endX = 0;
+function initImageSlider() {
+  const sliders = document.querySelectorAll(".image-slider");
+  if (!sliders.length) return;
 
-if (slider) {
-  slider.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
+  sliders.forEach(slider => {
+    const wrapper = slider.querySelector(".slider-wrapper");
+    const slides = Array.from(wrapper.querySelectorAll("img"));
+    const dotsContainer = slider.querySelector(".slider-dots");
+    dotsContainer.innerHTML = slides.map(() => `<span class="dot"></span>`).join("");
+    const dots = Array.from(dotsContainer.querySelectorAll(".dot"));
+    let index = 0;
 
-  slider.addEventListener('touchend', (e) => {
-    endX = e.changedTouches[0].clientX;
-    handleSwipe();
-  });
-}
+    // styling dasar
+    wrapper.style.display = "flex";
+    wrapper.style.transition = "transform 0.3s ease";
+    slides.forEach(img => {
+      img.style.width = "100%";
+      img.style.flexShrink = "0";
+    });
 
-function handleSwipe() {
-  const diff = startX - endX;
-  if (Math.abs(diff) > 50) { // minimal jarak geser biar gak terlalu sensitif
-    if (diff > 0) {
-      nextSlide(); // geser ke kanan (slide berikutnya)
-    } else {
-      prevSlide(); // geser ke kiri (slide sebelumnya)
+    // update tampilan slide & dot aktif
+    function showSlide(i) {
+      index = Math.max(0, Math.min(i, slides.length - 1));
+      wrapper.style.transform = `translateX(-${index * 100}%)`;
+      dots.forEach((d, di) => d.classList.toggle("active", di === index));
     }
-  }
+
+    // fungsi swipe (touch)
+    let startX = 0, isDragging = false;
+    slider.addEventListener("touchstart", e => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+      wrapper.style.transition = "none";
+    }, { passive: true });
+
+    slider.addEventListener("touchmove", e => {
+      if (!isDragging) return;
+      const currentX = e.touches[0].clientX;
+      const diff = currentX - startX;
+      wrapper.style.transform = `translateX(${diff - index * slider.clientWidth}px)`;
+    }, { passive: true });
+
+    slider.addEventListener("touchend", e => {
+      if (!isDragging) return;
+      isDragging = false;
+      wrapper.style.transition = "transform 0.3s ease";
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (diff > 50 && index > 0) index--;
+      else if (diff < -50 && index < slides.length - 1) index++;
+      showSlide(index);
+    });
+
+    showSlide(0);
+  });
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(initImageSlider, 100);
+});
