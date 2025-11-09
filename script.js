@@ -33,7 +33,56 @@ const motors = [
     category: "matic",
     new: false,
     link: "matic/scoopy.html"
-  }
+  },
+
+    {
+    name: "CBR150X",
+    price: "Rp. 35.020.000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/fa-ahm-sport-mid-thumbnail-550x413px-21112024-100503.png",
+    category: "sport",
+    new: true,
+    link: "matic/cbr150x.html"
+  },
+    {
+    name: "CBR150 VERZA",
+    price: "Rp. 24.210.000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/verza-product-thumbnail-400x300px-2-24042025-082912.png",
+    category: "sport",
+    new: false,
+    link: "matic/cbr.html"
+  },
+    {
+    name: "SONIC 150R",
+    price: "Rp. 28.790.000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/sonic-150r-550x413px-r1-22112024-041432.png",
+    category: "sport",
+    new: false,
+    link: "matic/sonic.html"
+  },
+    {
+    name: "CBR 150R Streetfire",
+    price: "Rp. 34,680,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/cb1504-550x413px-r1-22112024-041458.png",
+    category: "sport",
+    new: false,
+    link: "matic/cbr.html"
+  },
+    {
+    name: "CRF150L",
+    price: "Rp. 28,790,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/revproduct-thumbnail-crf150l-400x300px-28072025-020216.png",
+    category: "sport",
+    new: false,
+    link: "matic/crf.html"
+  },
+    {
+    name: "CBR150R",
+    price: "Rp. 39,020,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-cbr150r-550x413px-tr-new-2-21112024-100742.png",
+    category: "sport",
+    new: false,
+    link: "matic/"
+  },
 ];
 
 function renderMotors(category) {
