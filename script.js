@@ -4,7 +4,7 @@
 const motors = [
   {
     name: "BeAT",
-    price: "Rp. 18.980.000",
+    price: "Rp. 19.075.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/produk-thumbnail-brown-deluxe-400x300pxl-1-24072025-010253.png",
     category: "matic",
     new: true,
@@ -20,7 +20,7 @@ const motors = [
   },
   {
     name: "Genio",
-    price: "Rp. 20.075.000",
+    price: "Rp. 20.375.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-genio-new-3-29102025-075221.png",
     category: "matic",
     new: true,
@@ -28,7 +28,7 @@ const motors = [
   },
   {
     name: "Scoopy",
-    price: "Rp. 22.876.000",
+    price: "Rp. 23.250.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/new-honda-scoopy-sideview-right-stylish-green-400x300px-upload-2-06112024-012304.png",
     category: "matic",
     new: false,
@@ -36,7 +36,7 @@ const motors = [
   },
     {
     name: "Vario 125",
-    price: "Rp. 24,160,000",
+    price: "Rp. 24,260,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-vario-125-04062024-094941.png",
     category: "matic",
     new: false,
@@ -44,7 +44,7 @@ const motors = [
   },
     {
     name: "Vario 160",
-    price: "Rp. 28,100,000",
+    price: "Rp. 28,275,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-vario160-400x300-tr-10012024-040039.png",
     category: "matic",
     new: false,
@@ -52,7 +52,7 @@ const motors = [
   },
     {
     name: "Stylo 160",
-    price: "Rp. 29,170,000",
+    price: "Rp. 29,325,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-feature-blue-matte-400x300px-1-15082025-025256.png",
     category: "matic",
     new: true,
@@ -60,7 +60,7 @@ const motors = [
   },
     {
     name: "PCX 160",
-    price: "Rp. 34,350,000",
+    price: "Rp. 33,550,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-red-metallic-06122024-030208.png",
     category: "matic",
     new: false,
@@ -68,7 +68,7 @@ const motors = [
   },
     {
     name: "ADV160",
-    price: "Rp. 37,265,000",
+    price: "Rp. 36,600,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-1-08092025-030705.png",
     category: "matic",
     new: false,
@@ -117,7 +117,7 @@ const motors = [
   },
     {
     name: "CRF150L",
-    price: "Rp. 28,790,000",
+    price: "Rp. 27,125,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/revproduct-thumbnail-crf150l-400x300px-28072025-020216.png",
     category: "sport",
     new: false,
