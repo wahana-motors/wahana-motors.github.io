@@ -334,6 +334,19 @@ footer small {
   display: block;
 }
 
+.slide-hint {
+  text-align: center;
+  font-style: italic;
+  color: #aaa;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  animation: fadeSlide 2s ease-in-out infinite alternate;
+}
+@keyframes fadeSlide {
+  from { opacity: 0.6; transform: translateY(0px); }
+  to { opacity: 1; transform: translateY(-2px); }
+}
+
 /* === RESPONSIVE (Mobile) === */
 @media (max-width: 768px) {
   .footer-container {
