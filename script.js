@@ -131,6 +131,38 @@ const motors = [
     new: false,
     link: "matic/"
   },
+  {
+    name: "Supra X 125 FI",
+    price: "Rp. 21,350,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-new-supra-x-5-04032022-102907.png",
+    category: "cub",
+    new: false,
+    link: "matic/"
+  },
+  {
+    name: "GTR 150",
+    price: "Rp. 26,715,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/supra-gtr-150-4-27052021-092133.png",
+    category: "cub",
+    new: false,
+    link: "matic/"
+  },
+  {
+    name: "CT125",
+    price: "Rp. 82,539,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/ct125-400x300-3-14062023-040229.png",
+    category: "cub",
+    new: false,
+    link: "matic/"
+  },
+  {
+    name: "Supercub C125",
+    price: "Rp. 79,941,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/400x300-pxl-03052024-061642-1-10052024-062406.png",
+    category: "cub",
+    new: false,
+    link: "matic/"
+  },
 ];
 
 function renderMotors(category) {
