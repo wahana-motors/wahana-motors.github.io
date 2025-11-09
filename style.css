@@ -299,6 +299,40 @@ footer small {
   height: 35px;
   filter: brightness(0) invert(1); /* bikin logo putih */
 }
+.spesifikasi-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.spesifikasi-tab {
+  background: #333;
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.spesifikasi-tab:hover {
+  background: #ff2a2a;
+}
+
+.spesifikasi-tab.active {
+  background: #ff2a2a;
+  color: #fff;
+}
+
+.spesifikasi-content {
+  display: none;
+}
+
+.spesifikasi-content.active {
+  display: block;
+}
 
 /* === RESPONSIVE (Mobile) === */
 @media (max-width: 768px) {
