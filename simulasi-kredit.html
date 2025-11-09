@@ -1,23 +1,70 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Daftar Harga Motor Wahana</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Harga Motor Wahana</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fff;
+      color: #111;
+      overflow-x: hidden; /* mencegah geser horizontal */
+    }
+
+    section.daftar-harga {
+      text-align: center;
+      padding: 30px 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    section.daftar-harga h2 {
+      margin-bottom: 20px;
+      font-size: 1.5rem;
+      border-bottom: 2px solid #e41e26;
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    .tabel-harga {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Tambahan biar tetap bagus di layar kecil */
+    @media (max-width: 600px) {
+      section.daftar-harga h2 {
+        font-size: 1.2rem;
+      }
+      .tabel-harga {
+        max-width: 100%;
+        border-radius: 4px;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <div data-include="header.html"></div>
-<section class="daftar-harga">
-  <h2>Daftar Harga Motor Wahana Motors</h2>
-  <img src="https://lh3.googleusercontent.com/d/1cZieX3ZfMyFENt1RiozzSN11EfcYj91X" alt="Daftar Harga Motor Wahana Motors" class="tabel-harga">
-</section>
 
-  
+  <section class="daftar-harga">
+    <h2>Daftar Harga Motor Wahana Motors</h2>
+    <img src="https://lh3.googleusercontent.com/d/1cZieX3ZfMyFENt1RiozzSN11EfcYj91X" 
+         alt="Daftar Harga Motor Wahana Motors" 
+         class="tabel-harga">
+  </section>
+
   <div data-include="footer.html"></div>
 
-<!-- pastikan script ini ada di bawah -->
-<script src="script.js"></script>
+  <!-- pastikan script ini ada di bawah -->
+  <script src="script.js"></script>
 
 </body>
 </html>
