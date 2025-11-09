@@ -16,7 +16,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/produk-thumbnail-white-400x300pxl-1-24072025-010431.png",
     category: "matic",
     new: true,
-    link: "matic/beat-street.html"
+    link: "beat-street/"
   },
   {
     name: "Genio",
