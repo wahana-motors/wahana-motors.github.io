@@ -8,7 +8,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/produk-thumbnail-brown-deluxe-400x300pxl-1-24072025-010253.png",
     category: "matic",
     new: true,
-    link: "beat/index.html"
+    link: "beat/"
   },
   {
     name: "BeAT Street",
