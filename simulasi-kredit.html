@@ -10,15 +10,47 @@
     background: #fff;
     margin: 20px;
   }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
-  }
+
+ /* ====== Perbaikan layout tabel di mobile ====== */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto; /* biar bisa di-scroll horizontal di HP */
+  -webkit-overflow-scrolling: touch;
+  box-sizing: border-box;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* biar kolom rata */
+  border: 1px solid #000;
+  font-size: 14px;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border: 1px solid #000;
+  white-space: nowrap; /* biar angka gak turun ke bawah */
+}
+
+@media (max-width: 768px) {
   th, td {
-    border: 1px solid #000;
-    padding: 6px 8px;
+    font-size: 12px;
+    padding: 6px;
   }
+
+  /* kalau tabel terlalu panjang, biar bisa digeser */
+  .table-wrapper {
+    overflow-x: auto;
+  }
+}
+
+/* alternating row warna abu-putih */
+tr:nth-child(even) {
+  background-color: #f7f7f7;
+}
+
   th {
     background: #000;
     color: white;
@@ -45,6 +77,7 @@
 
   <div data-include="header.html"></div>
 <h2>Daftar Harga Motor Wahana Motors</h2>
+  <div class="table-wrapper">
 <table>
   <tr>
     <th>Nama Motor</th>
