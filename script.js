@@ -324,3 +324,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Inisialisasi tampilan awal
   updateSlider();
 });
+
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const tabs = document.querySelectorAll(".spesifikasi-tab");
+  const contents = document.querySelectorAll(".spesifikasi-content");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      contents.forEach(c => c.classList.remove("active"));
+      tab.classList.add("active");
+      document.getElementById(tab.dataset.tab).classList.add("active");
+    });
+  });
+});
