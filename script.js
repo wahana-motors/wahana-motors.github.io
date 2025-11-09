@@ -34,6 +34,54 @@ const motors = [
     new: false,
     link: "matic/scoopy.html"
   },
+    {
+    name: "Vario 125",
+    price: "Rp. 24,160,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-vario-125-04062024-094941.png",
+    category: "matic",
+    new: false,
+    link: "matic/vario125.html"
+  },
+    {
+    name: "Vario 160",
+    price: "Rp. 28,100,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-vario160-400x300-tr-10012024-040039.png",
+    category: "matic",
+    new: false,
+    link: "matic/vario160.html"
+  },
+    {
+    name: "Stylo 160",
+    price: "Rp. 29,170,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-feature-blue-matte-400x300px-1-15082025-025256.png",
+    category: "matic",
+    new: true,
+    link: "matic/stylo160.html"
+  },
+    {
+    name: "PCX 160",
+    price: "Rp. 34,350,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-red-metallic-06122024-030208.png",
+    category: "matic",
+    new: false,
+    link: "matic/pcx160.html"
+  },
+    {
+    name: "ADV160",
+    price: "Rp. 37,265,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-1-08092025-030705.png",
+    category: "matic",
+    new: false,
+    link: "matic/"
+  },
+    {
+    name: "Forza",
+    price: "Rp. 94,046,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-forza-400x300rev-1-16072025-031300.png",
+    category: "matic",
+    new: true,
+    link: "matic/forza.html"
+  },
 
   {
     name: "CBR150X",
