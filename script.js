@@ -22,7 +22,7 @@ const motors = [
     name: "Genio",
     price: "Rp. 20.075.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-genio-new-3-29102025-075221.png",
-    category: "sport",
+    category: "matic",
     new: true,
     link: "matic/genio.html"
   },
@@ -35,7 +35,7 @@ const motors = [
     link: "matic/scoopy.html"
   },
 
-    {
+  {
     name: "CBR150X",
     price: "Rp. 35.020.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/fa-ahm-sport-mid-thumbnail-550x413px-21112024-100503.png",
