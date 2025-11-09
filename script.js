@@ -163,6 +163,38 @@ const motors = [
     new: false,
     link: "matic/"
   },
+  {
+    name: "Revo",
+    price: "Rp. 17,985,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-new-supra-x-5-04032022-102907.png",
+    category: "cub",
+    new: false,
+    link: "matic/"
+  },
+    {
+    name: "ICON e",
+    price: "Rp. 28,000,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/ahm-light-sideview-blue-4-08102024-032201-09102024-051105.png",
+    category: "ev",
+    new: false,
+    link: "matic/"
+  },
+    {
+    name: "EM1 e: & EM1 e: PLUS",
+    price: "Rp. 40,000,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/em1-silver-samping-400x300-tr-21122023-045018.png",
+    category: "ev",
+    new: false,
+    link: "matic/"
+  },
+    {
+    name: "CUV e: & CUV e: RoadSync Duo",
+    price: "Rp. 54,450,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/a01-p01-2025-cuve-mat-pearl-crater-white-rh-side-std-1-08102024-044120-09102024-053635.png",
+    category: "ev",
+    new: false,
+    link: "matic/"
+  },
 ];
 
 function renderMotors(category) {
