@@ -71,7 +71,7 @@ const motors = [
     price: "Rp. 36,600,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-1-08092025-030705.png",
     category: "matic",
-    new: false,
+    new: true,
     link: "adv160/"
   },
     {
@@ -96,7 +96,7 @@ const motors = [
     price: "Rp. 24.210.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/verza-product-thumbnail-400x300px-2-24042025-082912.png",
     category: "sport",
-    new: false,
+    new: true,
     link: "cbr150-verza/"
   },
     {
@@ -120,8 +120,48 @@ const motors = [
     price: "Rp. 27,125,000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/revproduct-thumbnail-crf150l-400x300px-28072025-020216.png",
     category: "sport",
-    new: false,
+    new: true,
     link: "crf150l/"
+  },
+    {
+    name: "CBR250RR",
+    price: "Rp. 66,985,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-177,f-auto/uploads/product/thumbnail/thumbnail-cbr-550x413px-r1-2611-26112024-080056.png",
+    category: "Sport",
+    new: false,
+    link: "cbr250rr/"
+  },
+  {
+    name: "ST125 Dax",
+    price: "Rp. 83,139,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-177,f-auto/uploads/product/thumbnail/st125-dax-550x413px-21112024-101348.png",
+    category: "sport",
+    new: false,
+    link: "st125-dax/"
+  },
+  {
+    name: "Monkey",
+    price: "Rp. 87,794,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-177,f-auto/uploads/product/thumbnail/thumbnail-monkey-400x300-tr-13022025-050041.png",
+    category: "",
+    new: true,
+    link: "monkey/"
+  },
+  {
+    name: "CRF250 RALLY",
+    price: "Rp. 96,539,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-177,f-auto/uploads/product/thumbnail/crf-250-web-banner-product-thumbnail-400x300px-16062025-032317.png",
+    category: "sport",
+    new: true,
+    link: "crf250-rally/"
+  },
+    {
+    name: "CRF250L",
+    price: "Rp. 86,717,000",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-177,f-auto/uploads/product/thumbnail/crf250l-web-banner-product-thumbnail-400x300px-16062025-091255.png",
+    category: "sport",
+    new: true,
+    link: "crf250l/"
   },
     {
     name: "CBR150R",
