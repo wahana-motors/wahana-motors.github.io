@@ -24,7 +24,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-genio-new-3-29102025-075221.png",
     category: "matic",
     new: true,
-    link: "matic/genio.html"
+    link: "genio/"
   },
   {
     name: "Scoopy",
