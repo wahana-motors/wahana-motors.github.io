@@ -40,7 +40,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-vario-125-04062024-094941.png",
     category: "matic",
     new: false,
-    link: "matic/vario125.html"
+    link: "vario125/"
   },
     {
     name: "Vario 160",
@@ -48,7 +48,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-vario160-400x300-tr-10012024-040039.png",
     category: "matic",
     new: false,
-    link: "matic/vario160.html"
+    link: "vario160/"
   },
     {
     name: "Stylo 160",
@@ -56,7 +56,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-feature-blue-matte-400x300px-1-15082025-025256.png",
     category: "matic",
     new: true,
-    link: "matic/stylo160.html"
+    link: "stylo160/"
   },
     {
     name: "PCX 160",
@@ -64,7 +64,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-red-metallic-06122024-030208.png",
     category: "matic",
     new: false,
-    link: "matic/pcx160.html"
+    link: "pcx160/"
   },
     {
     name: "ADV160",
@@ -72,7 +72,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-400x300px-1-08092025-030705.png",
     category: "matic",
     new: false,
-    link: "matic/"
+    link: "adv160/"
   },
     {
     name: "Forza",
@@ -80,7 +80,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/product-thumbnail-forza-400x300rev-1-16072025-031300.png",
     category: "matic",
     new: true,
-    link: "matic/forza.html"
+    link: "forza/"
   },
 
   {
@@ -89,7 +89,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/fa-ahm-sport-mid-thumbnail-550x413px-21112024-100503.png",
     category: "sport",
     new: true,
-    link: "matic/cbr150x.html"
+    link: "cbr150x/"
   },
     {
     name: "CBR150 VERZA",
@@ -97,7 +97,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/verza-product-thumbnail-400x300px-2-24042025-082912.png",
     category: "sport",
     new: false,
-    link: "matic/cbr.html"
+    link: "cbr150-verza/"
   },
     {
     name: "SONIC 150R",
@@ -105,7 +105,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/sonic-150r-550x413px-r1-22112024-041432.png",
     category: "sport",
     new: false,
-    link: "matic/sonic.html"
+    link: "sonic-150r/"
   },
     {
     name: "CBR 150R Streetfire",
@@ -113,7 +113,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/cb1504-550x413px-r1-22112024-041458.png",
     category: "sport",
     new: false,
-    link: "matic/cbr.html"
+    link: "cbr150r-streetfire/"
   },
     {
     name: "CRF150L",
@@ -121,7 +121,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/revproduct-thumbnail-crf150l-400x300px-28072025-020216.png",
     category: "sport",
     new: false,
-    link: "matic/crf.html"
+    link: "crf150l/"
   },
     {
     name: "CBR150R",
@@ -129,7 +129,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-cbr150r-550x413px-tr-new-2-21112024-100742.png",
     category: "sport",
     new: false,
-    link: "matic/"
+    link: "cbr150r/"
   },
   {
     name: "Supra X 125 FI",
@@ -137,7 +137,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-new-supra-x-5-04032022-102907.png",
     category: "cub",
     new: false,
-    link: "matic/"
+    link: "supra-x125fi/"
   },
   {
     name: "GTR 150",
@@ -145,7 +145,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/supra-gtr-150-4-27052021-092133.png",
     category: "cub",
     new: false,
-    link: "matic/"
+    link: "gtr150/"
   },
   {
     name: "CT125",
@@ -153,7 +153,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/ct125-400x300-3-14062023-040229.png",
     category: "cub",
     new: false,
-    link: "matic/"
+    link: "ct125/"
   },
   {
     name: "Supercub C125",
@@ -161,7 +161,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/400x300-pxl-03052024-061642-1-10052024-062406.png",
     category: "cub",
     new: false,
-    link: "matic/"
+    link: "supercub-c125/"
   },
   {
     name: "Revo",
@@ -169,7 +169,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/thumbnail-new-supra-x-5-04032022-102907.png",
     category: "cub",
     new: false,
-    link: "matic/"
+    link: "revo/"
   },
     {
     name: "ICON e",
@@ -177,7 +177,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/ahm-light-sideview-blue-4-08102024-032201-09102024-051105.png",
     category: "ev",
     new: false,
-    link: "matic/"
+    link: "econe/"
   },
     {
     name: "EM1 e: & EM1 e: PLUS",
@@ -185,7 +185,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/em1-silver-samping-400x300-tr-21122023-045018.png",
     category: "ev",
     new: false,
-    link: "matic/"
+    link: "emplus/"
   },
     {
     name: "CUV e: & CUV e: RoadSync Duo",
@@ -193,7 +193,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/a01-p01-2025-cuve-mat-pearl-crater-white-rh-side-std-1-08102024-044120-09102024-053635.png",
     category: "ev",
     new: false,
-    link: "matic/"
+    link: "cuv-roadsync/"
   },
 ];
 
