@@ -32,7 +32,7 @@ const motors = [
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/new-honda-scoopy-sideview-right-stylish-green-400x300px-upload-2-06112024-012304.png",
     category: "matic",
     new: false,
-    link: "matic/scoopy.html"
+    link: "scoopy/"
   },
     {
     name: "Vario 125",
