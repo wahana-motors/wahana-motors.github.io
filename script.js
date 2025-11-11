@@ -92,12 +92,12 @@ const motors = [
     link: "cbr150x/"
   },
     {
-    name: "CBR150 VERZA",
+    name: "CB150 VERZA",
     price: "Rp. 24.210.000",
     img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-550,f-auto/uploads/product/thumbnail/verza-product-thumbnail-400x300px-2-24042025-082912.png",
     category: "sport",
     new: true,
-    link: "cbr150-verza/"
+    link: "cb150-verza/"
   },
     {
     name: "SONIC 150R",
