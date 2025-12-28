@@ -5,7 +5,7 @@ const motors = [
   {
     name: "BeAT",
     price: "Rp. 19.075.000",
-    img: "https://drive.google.com/file/d/1bHIzqW_p8kalilEr_DKVn_tShRiGjlmj/view?usp=drive_link",
+    img: "https://ik.imagekit.io/zlt25mb52fx/ahmcdn/tr:w-177,f-auto/uploads/product/thumbnail/produk-thumbnail-brown-deluxe-400x300pxl-1-24072025-010253.png",
     category: "matic",
     new: true,
     link: "beat/"
